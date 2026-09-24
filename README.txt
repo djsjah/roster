@@ -79,11 +79,19 @@ deploy/postgres/init/02-seed.sql
 
 Первый скрипт создает структуру базы данных, второй добавляет тестовые данные.
 
-Для полной остановки PostgreSQL следует использовать команду:
+Для временной остановки контейнера PostgreSQL без его удаления:
+
+docker compose --env-file .env -f deploy/docker-compose.yml stop
+
+Для повторного запуска остановленного контейнера:
+
+docker compose --env-file .env -f deploy/docker-compose.yml start
+
+Для остановки и удаления контейнера PostgreSQL с сохранением данных:
 
 docker compose --env-file .env -f deploy/docker-compose.yml down
 
-Для удаления базы данных вместе с Docker volume:
+Для остановки контейнера и удаления базы данных вместе с Docker volume:
 
 docker compose --env-file .env -f deploy/docker-compose.yml down -v
 
