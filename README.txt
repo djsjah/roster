@@ -14,7 +14,7 @@
 - JUnit 5
 - PostgreSQL 16
 - JDBC
-- Docker Compose
+- Docker Compose V2
 
 
 Запуск приложения
@@ -117,7 +117,7 @@ SELECT
     COUNT(ed.employee_id) AS employee_count
 FROM departments d
 LEFT OUTER JOIN employee_departments ed ON d.id = ed.department_id
-GROUP BY d.id, d.name
+GROUP BY d.id
 ORDER BY d.name;
 
 Запрос выводит все департаменты и количество сотрудников в каждом из них.
